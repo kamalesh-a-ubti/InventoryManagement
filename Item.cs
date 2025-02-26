@@ -13,13 +13,19 @@ namespace InventoryManagement{
                  if (value < 0)
                      throw new ArgumentException("Quantity cannot be negative");
                 quantity = value;
-            };
+            }
         }
 
         //giving the value to the quantity
         //base() is used to use the constructor of the parent class.
         public Item(string name,double price , int quantity) : base(name,price){
-            Quantity = quantity;
+            try{
+                Quantity = quantity;
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
         }
     }
 }

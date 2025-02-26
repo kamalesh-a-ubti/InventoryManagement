@@ -18,18 +18,22 @@ namespace InventoryManagement{
     public double Price {
         get{return price; }
         set{
-            if (value<0){
-                throw new ArgumnetException("Price cannot be negative")
+                 if (value < 0)
+                     throw new ArgumentException("Price cannot be negative");
+                price = value;
             }
-            price = value;
-        }
     }
 
 
     //geting the values of the above variables using constructor
     public Product(string name , double price ){
-        Name=name;
-        Price=price;
+        try{
+            Name=name;
+            Price=price;
+        }
+        catch(ArgumentException ex){
+            Console.WriteLine($"Error :{ex.Message}");
+        }
     }
 
 }
