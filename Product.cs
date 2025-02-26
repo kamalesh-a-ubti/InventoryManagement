@@ -34,6 +34,9 @@ namespace InventoryManagement{
         catch(ArgumentException ex){
             Console.WriteLine($"Error :{ex.Message}");
         }
+        finally{
+            Console.WriteLine("Object got created");
+        }
     }
 
 }

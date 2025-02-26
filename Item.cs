@@ -26,6 +26,9 @@ namespace InventoryManagement{
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
+            finally{
+                Console.WriteLine("Object got created");
+            }
         }
     }
 }

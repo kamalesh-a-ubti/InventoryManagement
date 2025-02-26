@@ -55,6 +55,10 @@ namespace InventoryManagement
             {
                 Console.WriteLine($"Unexpected error: {ex.Message}");
             }
+            finally
+            {
+                Console.WriteLine("Execution of Main method completed.");
+            }
         }
 
         static double CalculateTotalValue(Product[] inventory)
@@ -75,6 +79,10 @@ namespace InventoryManagement
             catch (Exception ex)
             {
                 Console.WriteLine($"Error calculating total value: {ex.Message}");
+            }
+            finally
+            {
+                Console.WriteLine("Execution of CalculateTotalValue method completed.");
             }
 
             // Return the total value
@@ -104,6 +112,10 @@ namespace InventoryManagement
             catch (Exception ex)
             {
                 Console.WriteLine($"Error finding highest quantity item: {ex.Message}");
+            }
+            finally
+            {
+                Console.WriteLine("Execution of CalculateHighestItem method completed.");
             }
 
             return highestQuantityItem;
