@@ -4,13 +4,25 @@ namespace InventoryManagement{
 
     public class Product{
     //creating the variables to store the values passed through using constructor
+
+    //encapsulation 
+    private string name;
+    private double price;
+
     public string Name {
         //get is used to get the value of the name
         //set is used to set the value of the name
-        get;set;
+        get{return name;}
+        set{name = value;}
     }
     public double Price {
-        get;set;
+        get{return price; }
+        set{
+            if (value<0){
+                throw new ArgumnetException("Price cannot be negative")
+            }
+            price = value;
+        }
     }
 
 
