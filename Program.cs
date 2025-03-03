@@ -15,10 +15,9 @@ namespace InventoryManagement
                     // Taking the number of Items
                     Console.WriteLine("Enter the number of Products:");
                     int noOfProducts = int.Parse(Console.ReadLine());
-
                     // Creating the array to store the details of items
                     Item[] inventory = new Item[noOfProducts];
-
+                    
                     // Getting the details of Items from inputs
                     for (int i = 0; i < noOfProducts; i++)
                     {
@@ -28,10 +27,10 @@ namespace InventoryManagement
                         string name = Console.ReadLine();
                         // Price
                         Console.WriteLine("Price:");
-                        double price = double.Parse(Console.ReadLine());
+                        double price = GetValidDouble();
                         // Quantity
                         Console.WriteLine("Quantity:");
-                        int quantity = int.Parse(Console.ReadLine());
+                        int quantity = GetValidInt();
 
                         // Putting them into array
                         inventory[i] = new Item(name, price, quantity);
@@ -46,7 +45,8 @@ namespace InventoryManagement
                     Console.WriteLine($"Total value of inventory: {totalValue}");
 
                     Console.WriteLine($"Item with the highest quantity: {highestQuantityItem.Name} (Quantity: {highestQuantityItem.Quantity})");
-                    break;
+
+                    break;//breaking the loop
                 }
                 catch (FormatException ex)
                 {
@@ -64,10 +64,40 @@ namespace InventoryManagement
                 {
                     Console.WriteLine("Execution of Main method completed.");
                 }
-            }
+
+                }
             
         }
+        //input handling of the int input
+        static int GetValidInt()
+        {
+            while (true)
+            {
+                try
+                {
+                    return int.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid integer:");
+                }
+                }   
+        }
+        //input handling of the double
 
-        
+        static double GetValidDouble()
+        {
+            while (true)
+            {
+                try
+                {
+                    return double.Parse(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number:");
+                }
+            }
+        }
     }
 }
